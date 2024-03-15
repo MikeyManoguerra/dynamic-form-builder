@@ -1,0 +1,19 @@
+.layout {
+  min-height: calc(100vh - 50px);
+  padding-top: 30px;
+  padding-bottom: 50px;
+
+}
+
+.layout-inner {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+@media (min-width: 1200px) {
+  .layout-inner {
+    margin-right: auto;
+    margin-left: auto;
+    width: 1160px;
+  }
+}

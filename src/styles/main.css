@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+  /* color: var(--text-color) */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+small,
+li {
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--text-color)
+}
+
+:root {
+  --grey: #212121;
+  --dark-grey: #171717;
+  --text-color: tan;
+  --purple: #9e67c3;
+  --light-purple: #BB95D5;
+  --green: #008f7a;
+  --yellow: #947d16;
+}
+
+/* bootstrap breakpoints */
+/* --xxs: 0; */
+/* --xs: 425px; */
+/* --sm: 576px; */
+/* --md: 768px; */
+/* --lg: 992px; */
+/* --xl: 1200px; */
+/* --xxl: 1400px; */
+
+html {
+  background-color: var(--grey);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ol,
+ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+li {
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  appearance: none;
+}
+
+.toast-container>.ngx-toastr.ngrx-cache-notify {
+  background-color: var(--dark-grey);
+  color: var(--text-color);
+  font-size: 14px;
+  padding: 15px 20px;
+  box-shadow: 0 0 4px 0 var(--text-color);
+}
