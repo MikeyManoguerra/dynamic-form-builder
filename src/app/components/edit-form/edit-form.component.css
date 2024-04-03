@@ -1,0 +1,11 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.metadata-toggle {
+  margin-top: 16px;
+}

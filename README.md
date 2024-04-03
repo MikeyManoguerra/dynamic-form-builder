@@ -1,20 +1,17 @@
-# NgRx Cache Example
+# Dynamic Form Builder Example
 
-#### Live Site: [https://mikeymanoguerra.github.io/ngrx-cache-example/](https://mikeymanoguerra.github.io/ngrx-cache-example/)
+### What is it?
+This is an example repository showing how to dynamically inject custom input components into a Reactive Form. This allows for rendering of forms defined by a data source without a switch case in the template.
 
+### How does it work?
+The application defines a custom model for a Form, which has a collection of Questions, another custom model. The critical key on the Question model is `type`, which is mapped to the custom input components via `dynamic-input.directive.ts` that the application supports in `components/inputs`. When the application renders a form, it loops over the model questions in the data and renders the requisite custom component. 
 
-This repository demonstrates three different caching schemes for use in Angular with NgRx store, named Session Cache, (Auto) Refreshing Cache, and Expiring Cache.
+### How does one use this example application?
+There is a predefined list of forms on the home page, which can be filled out on page load. A user can also test creating their own form, or editing one of the existing forms. Questions can be added to a question library, so common questions can be used across forms. The application state is saved in localstorage, so a user can edit example forms across sessions.
 
-The crux of the project are the icon.service.ts and color.service.ts . Most of the rest of it serves as boilerplate or beautification.
-
-__Session Cache__: Data fetched from API once, persists in store lasts for life of session. <br/>
-
-![session cache screenshot](./src/assets/session-cache.png)
-
-__Auto Refreshing Cache__: Observable tracks validity of data via expiration date value, Automatically fetches new data and updates store.<br/>
-
-![refreshing cache screenshot](./src/assets/refreshing-cache.png)
-
-__Expiring Cache__: Preflight request on creation of new observable, fetches fresh data if store data is expired.<br/>
-
-![expiring cache screenshot](./src/assets/expiring-cache.png)
+### What is next?
+- Provide more question customization to the user: placeholder text, help text
+- render error text in real time under inputs
+- allow access to validators in inputs (see note in `dynamic-input.directive.ts`)
+- Force uniqueness in library question slugs
+- ...

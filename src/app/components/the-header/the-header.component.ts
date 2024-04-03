@@ -1,30 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { octMarkGithub } from '@ng-icons/octicons'
 
 @Component({
   selector: 'the-header',
   standalone: true,
-  imports: [CommonModule, RouterModule, NgIconComponent],
-  viewProviders: [provideIcons({ octMarkGithub })],
+  imports: [CommonModule, RouterModule],
+  viewProviders: [],
   template: `
     <header>
       <div class="header-inner">
         <nav>
           <ul>
-            <li><a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">Home</a></li>
-            <li><a routerLinkActive="active" routerLink="/first">
-              <span>One</span>
-              <span>First</span>
+            <li><a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/" class="underline hover:no-underline">Home</a></li>
+            <li><a routerLinkActive="active" routerLink="/forms/new" class="underline hover:no-underline">
+              <span>New Form</span>
             </a></li>
           </ul>
         </nav>
         <div class="controls">
           <div>
           </div>
-          <div>|</div>
+          <div class="flex gap-2">
+            <button
+              (click)="onReset.emit()"
+              class="underline hover:no-underline"
+            >Reset</button>
+            <span>|</span>
+            <a
+              href="https://github.com/mikeymanoguerra/INSERT_REPOSITORY"
+              class="underline hover:no-underline"
+            >Github</a>
+          </div>
         </div>
       </div>
     </header>
@@ -32,5 +39,5 @@ import { octMarkGithub } from '@ng-icons/octicons'
   styleUrl: './the-header.component.css'
 })
 export class TheHeaderComponent {
-
+  @Output() onReset = new EventEmitter();
 }

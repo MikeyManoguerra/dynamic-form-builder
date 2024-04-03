@@ -1,0 +1,23 @@
+[
+  {
+    "label": "Full Name",
+    "type": "text",
+    "slug": "full-name",
+    "order": 0,
+    "required": true
+  },
+  {
+    "label": "First Name",
+    "type": "text",
+    "slug": "first-name",
+    "order": 0,
+    "required": true
+  },
+  {
+    "label": "Last Name",
+    "type": "text",
+    "slug": "last-name",
+    "order": 0,
+    "required": true
+  }
+]

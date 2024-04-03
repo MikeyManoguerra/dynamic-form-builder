@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngrx-cache": {
+    "dynamic-form-builder": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ngrx-cache",
+            "outputPath": "dist/dynamic-form-builder",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -58,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ngrx-cache:build:production"
+              "buildTarget": "dynamic-form-builder:build:production"
             },
             "development": {
-              "buildTarget": "ngrx-cache:build:development"
+              "buildTarget": "dynamic-form-builder:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -69,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ngrx-cache:build"
+            "buildTarget": "dynamic-form-builder:build"
           }
         },
         "test": {

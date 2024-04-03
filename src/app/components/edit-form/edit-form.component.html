@@ -1,0 +1,98 @@
+<div class="flex justify-between items-center">
+  <h2 class="text-2xl font-bold">Form Metadata</h2>
+  <div class="flex gap-2">
+    <ng-container *ngIf="form$ | async as form">
+      <a
+        [routerLink]="['/forms', form.slug]"
+        class="underline hover:no-underline"
+      >Test</a>
+    </ng-container>
+    <span>|</span>
+    <button
+      (click)="toggleMetadataFormDisabled()"
+      class="underline hover:no-underline"
+    >
+      <span *ngIf="metadataFormDisabled; else cancelText">Edit</span>
+      <ng-template #cancelText>Cancel</ng-template>
+    </button>
+
+  </div>
+</div>
+<form-metadata-form
+  [isNew]="false"
+  [disabled]="metadataFormDisabled"
+  [form$]="form$"
+  (handleSubmit)="handleMetaDataSubmit($event)"
+></form-metadata-form>
+<ng-container *ngIf="metadataFormDisabled">
+  <ng-container *ngIf="form$ | async as form">
+    <h2 class="text-xl font-bold">Questions</h2>
+
+    <ul>
+
+      <ng-container *ngFor="let question of (form.questions | ordered)">
+        <li class="flex gap-2 flex-wrap justify-between border rounded border-amber-100 p-4 mt-3">
+          <div class="flex gap-2 items-center">
+            <p>{{question.label}}</p>
+            <p class="text-sm">({{question.slug}})</p>
+          </div>
+          <div class="flex gap-2">
+            <!-- <button class="underline hover:no-underline">Edit</button> -->
+            <button
+              (click)="removeQuestion(question)"
+              class="underline hover:no-underline"
+            >Delete</button>
+          </div>
+        </li>
+      </ng-container>
+    </ul>
+  </ng-container>
+
+  <div
+    *ngIf="!newQuestionFlow"
+    class="flex justify-end pt-3"
+  >
+    <button
+      (click)="newQuestionFlow = !newQuestionFlow"
+      class="bg-violet-500 hover:bg-violet-700 text-amber-100 font-bold py-2 px-4 rounded-full disabled:opacity-50 disabled:pointer-events-none"
+    >Add a New Question</button>
+  </div>
+  <ng-container *ngIf="newQuestionFlow">
+    <div class="flex gap-4 items-center py-3">
+      <div class="relative">
+        <select
+          [formControl]="librarySelectControl"
+          id=""
+          class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+        >
+          <option value=""></option>
+          <option
+            *ngFor="let question of questionLibrary$ | async"
+            [value]="question.slug"
+          >
+            {{question.label}}
+          </option>
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+          <svg
+            class="fill-current h-4 w-4"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+          >
+            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+          </svg>
+        </div>
+      </div>
+      <button
+        (click)="injectLibaryQuestion()"
+        class="underline hover:no-underline"
+      >Apply from library</button>
+    </div>
+    <question-form
+      [question]="currentQuestion$ | async"
+      [questions]="(form$ |async)?.questions || []"
+      (handleSubmit)="handleQuestionSubmit($event)"
+      (onCancel)="newQuestionFlow=false"
+    ></question-form>
+  </ng-container>
+</ng-container>

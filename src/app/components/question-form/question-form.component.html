@@ -1,0 +1,90 @@
+<form
+  (ngSubmit)="onSubmit()"
+  [formGroup]="questionForm"
+>
+  <div class="form-control">
+    <label for="question-label">Label</label>
+    <input
+      formControlName="label"
+      id="question-label"
+      type="text"
+      [ngClass]="{'border-red-500': questionForm.controls.label | inputError}"
+      class="shadow appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    >
+  </div>
+  <div class="form-control">
+    <label for="question-slug">Slug</label>
+    <input
+      formControlName="slug"
+      id="question-slug"
+      type="text"
+      [ngClass]="{'border-red-500': questionForm.controls.slug | inputError}"
+      class="shadow appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    >
+  </div>
+  <div class="form-control">
+    <label for="order">Order</label>
+    <input
+      formControlName="order"
+      id="order"
+      type="number"
+      min="1"
+      [max]="questions.length + 1"
+      [ngClass]="{'border-red-500': questionForm.controls.order | inputError}"
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    >
+  </div>
+  <div class="form-control">
+    <label for="question-type">Type</label>
+    <div class="relative">
+      <select
+        formControlName="type"
+        id="question-type"
+        [ngClass]="{'border-red-500': questionForm.controls.type | inputError}"
+        class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+      >
+        <option value=""></option>
+        <option value="text">Text</option>
+        <option value="text-area">Text Area</option>
+        <!-- <option value="select"Select</option> -->
+      </select>
+      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+        <svg
+          class="fill-current h-4 w-4"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+        >
+          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="form-control checkbox-control">
+    <input
+      formControlName="required"
+      id="required"
+      type="checkbox"
+    >
+    <label for="required">Required</label>
+  </div>
+  <div class="form-control checkbox-control">
+    <input
+      formControlName="library"
+      id="library"
+      type="checkbox"
+    >
+    <label for="library">Add to Question Library</label>
+  </div>
+
+  <div class="flex justify-end items-center gap-3 pt-2">
+    <button
+      (click)="onCancel.emit()"
+      class="underline hover:no-underline"
+    >Cancel</button>
+    <input
+      class="bg-violet-500 hover:bg-violet-700 text-amber-100 font-bold py-2 px-4 rounded-full disabled:opacity-50 disabled:pointer-events-none"
+      [disabled]="this.questionForm.invalid"
+      type="submit"
+    >
+  </div>
+</form>

@@ -1,0 +1,9 @@
+<ul *ngIf="forms$ | async as forms" class="flex flex-col ">
+  <li *ngFor="let form of forms" class="py-2">
+    <p class="text-xl font-bold">{{ form.title }}</p>
+    <div class="links">
+      <a [routerLink]="['/forms', form.slug]" class="underline hover:no-underline"><small>Fill Out</small></a>
+      <a [routerLink]="['/forms', form.slug, 'edit']" class="underline hover:no-underline"><small>Edit</small></a>
+    </div>
+  </li>
+</ul>

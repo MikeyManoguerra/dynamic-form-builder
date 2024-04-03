@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *,
 *::before,
 *::after {
@@ -21,6 +25,8 @@ p,
 span,
 a,
 small,
+label,
+button,
 li {
   font-family: 'Courier New', Courier, monospace;
   color: var(--text-color)
@@ -77,7 +83,9 @@ button {
   appearance: none;
 }
 
-.toast-container>.ngx-toastr.ngrx-cache-notify {
+
+
+.toast-container>.ngx-toastr.dynamic-form-builder-notify {
   background-color: var(--dark-grey);
   color: var(--text-color);
   font-size: 14px;

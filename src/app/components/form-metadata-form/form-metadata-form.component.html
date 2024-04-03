@@ -1,0 +1,25 @@
+<h1
+  *ngIf="isNew"
+  class="text-2xl font-bold"
+>Create a Form</h1>
+<form
+  [formGroup]="domForm"
+  (ngSubmit)="onSubmit()"
+>
+  <ng-container
+    [formControlName]="titleQuestion.slug"
+    [dynamicInput]="titleQuestion"
+  ></ng-container>
+  <ng-container
+    [formControlName]="slugQuestion.slug"
+    [dynamicInput]="slugQuestion"
+  ></ng-container>
+  <div class="flex justify-end pt-5">
+    <input
+      *ngIf="!this.domForm.disabled"
+      [disabled]="this.domForm.invalid"
+      type="submit"
+      class="bg-violet-500 hover:bg-violet-700 text-amber-100 font-bold py-2 px-4 rounded-full disabled:opacity-50 disabled:pointer-events-none"
+      >
+  </div>
+</form>

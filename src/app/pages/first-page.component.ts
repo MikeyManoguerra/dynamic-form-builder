@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DefaultLayoutComponent } from '../../layouts/default-layout/default-layout.component';
+import { DefaultLayoutComponent } from '../layouts/default-layout/default-layout.component';
 
 
 

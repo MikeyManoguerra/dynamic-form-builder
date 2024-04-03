@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'ngrx-cache' title`, () => {
+  it(`should have the 'dynamic-form-builder' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    // expect(app.title).toEqual('ngrx-cache');
+    // expect(app.title).toEqual('dynamic-form-builder');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ngrx-cache');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, dynamic-form-builder');
   });
 });
