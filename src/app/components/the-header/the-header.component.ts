@@ -28,7 +28,7 @@ import { CommonModule } from '@angular/common';
             >Reset</button>
             <span>|</span>
             <a
-              href="https://github.com/mikeymanoguerra/INSERT_REPOSITORY"
+              href="https://github.com/mikeymanoguerra/dynamic-form-builder"
               class="underline hover:no-underline"
             >Github</a>
           </div>
