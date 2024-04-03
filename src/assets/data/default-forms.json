@@ -22,48 +22,62 @@
   {
     "questions": [
       {
-        "label": "First Name",
+        "label": "Bird Name",
         "type": "text",
-        "slug": "first-name",
+        "slug": "bird-name",
         "order": 0,
         "required": true
       },
       {
-        "label": "Last Name",
+        "label": "Bird Type",
         "type": "text",
-        "slug": "last-name",
+        "slug": "bird-type",
         "order": 1,
+        "required": true
+      },
+      {
+        "label": "Bird Favorite Food",
+        "type": "text",
+        "slug": "bird-food",
+        "order": 2,
+        "required": true
+      },
+      {
+        "label": "Describe your bird",
+        "type": "text-area",
+        "slug": "bird-description",
+        "order": 3,
         "required": true
       }
     ],
-    "slug": "cool",
-    "title": "Cool Form"
+    "slug": "bird-ownership",
+    "title": "Bird Ownership Form"
   },
   {
     "questions": [
       {
-        "label": "First Name",
+        "label": "What is cool",
         "type": "text",
-        "slug": "first-name",
+        "slug": "what-is-cool",
         "order": 0,
         "required": true
       },
       {
-        "label": "Last Name",
+        "label": "How do you stay cool",
         "type": "text",
-        "slug": "last-name",
+        "slug": "stay-cool",
         "order": 1,
         "required": true
       },
       {
-        "label": "Description",
+        "label": "Why is cool important",
         "type": "text-area",
-        "slug": "description",
+        "slug": "cool-important",
         "order": 2,
         "required": true
       }
     ],
-    "slug": "nice",
-    "title": "Nice Form"
+    "slug": "cool-form",
+    "title": "Very Cool Form"
   }
 ]

@@ -19,5 +19,19 @@
     "slug": "last-name",
     "order": 0,
     "required": true
+  },
+  {
+    "label": "Favorite candy",
+    "type": "text",
+    "slug": "favorite-candy",
+    "order": 0,
+    "required": true
+  },
+  {
+    "label": "Describe your perfect day",
+    "type": "text-area",
+    "slug": "describe-perfect-day",
+    "order": 0,
+    "required": true
   }
 ]
